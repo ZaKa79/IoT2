@@ -2,7 +2,6 @@ from time import sleep
 from umqtt.simple import MQTTClient
 from machine import Pin
 import network
-import dht
 import I2C
 
 pir_pin = Pin((14), Pin.IN)
