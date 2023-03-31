@@ -6,6 +6,7 @@ from io import BytesIO
 from flask import Flask
 from matplotlib.figure import Figure
 import sqlite3
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -51,7 +52,9 @@ def hello():
         # Embed the result in the html output.
         data = base64.b64encode(buf.getbuffer()).decode("ascii")
 
-        return f"<img src='data:image/png;base64,{data}'/>"
+        image = f"data:image/png;base64,{data}"
+        return render_template("index.html", image=image, logo=url_for('static', filename='SL_LOGO.png'))
+
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)

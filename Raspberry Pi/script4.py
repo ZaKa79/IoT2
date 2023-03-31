@@ -7,13 +7,12 @@ import gps2
 
 SERVER = '192.168.137.139'  # MQTT Server Address (Change to the IP address of your Pi)
 TOPIC = 'data'
-led = PWMLED(17, frequency=500) # GPIO pins connected to the RGB LED
+led = PWMLED(17, frequency=60) # GPIO pins connected to the RGB LED
 
 #Opret database. Undlad hvis den findes. Connect til data.db
 conn = sqlite3.connect('data.db')
 c = conn.cursor() #make a cursor
 c.execute("CREATE TABLE IF NOT EXISTS data (id integer PRIMARY KEY AUTOINCREMENT, datetime timestamp, lys int, latitude REAL, longitude REAL)") #creates the database 
-
 
 # Callback function to handle MQTT message
 def on_message(client, userdata, message):
@@ -24,7 +23,7 @@ def on_message(client, userdata, message):
 
     gps2.gps_read()
 
-    if split_list[2] < 3500:
+    if split_list[2] < 500:
         led.value = 0.1 #Led on 20%
         if split_list[0] == 1:
             led.value = 1

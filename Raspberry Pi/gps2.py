@@ -15,3 +15,5 @@ def gps_read():
         lat=newmsg.latitude
         lng=newmsg.longitude
         print(lat, lng)
+
+

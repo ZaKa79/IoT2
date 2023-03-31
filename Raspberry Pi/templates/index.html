@@ -1,14 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>Lys vs. Time</title>
+  <head>
+	<link rel="stylesheet" href="style.css">
+	<style>
+
+		  body {
+    height: 100vh;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      }
+	
+	</style>
   </head>
-<body>
-  <img id="plot" src="data:image/png;base64,{{ img_data }}" />
-  <script>
-    setInterval(function(){
-      location.reload();
-    }, 1000); 
-  </script>
-</body>
+  <body>
+	<div id="center">
+
+		<div class="left">
+		<img src="{{ logo }}" alt="SL_LOGO" >
+		</div><!-- comment to close gap
+		--><div class="right">		
+		<img src="{{ image }}" alt="plot">
+		</div>
+	<script>
+		setInterval(function(){
+			location.reload();
+		}, 2000);
+	</script>
+	
+	</div>
+
+
+
+
+
+    
+    <br>
+    
+  </body>
 </html>
