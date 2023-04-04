@@ -4,7 +4,7 @@ from machine import Pin
 import network
 import I2C
 
-pir_pin = Pin((14), Pin.IN)
+pir_pin = Pin(14, Pin.IN)
 touch = Pin(17, Pin.IN)
 
 def knap():
