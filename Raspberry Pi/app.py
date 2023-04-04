@@ -3,7 +3,6 @@
 from time import sleep
 import base64
 from io import BytesIO
-from flask import Flask
 from matplotlib.figure import Figure
 import sqlite3
 from flask import Flask, render_template, url_for
@@ -43,7 +42,6 @@ def hello():
         fig.patch.set_facecolor('#1a936f') #baggrund på site
         ax.plot(x, y, c = '#11f', linewidth = '1.5',marker = 'd', mec = 'green', ms = 10, mfc = 'green' )
 
-        ax.plot(x, y)
         ax.set_ylim([0, 4096 ]) # set the y-axis range
     
         # Save it to a temporary buffer.
